@@ -1,3 +1,5 @@
+import os
+
 # Lisäysfunktio
 def lisaa(x, y):
     return x + y
@@ -31,10 +33,11 @@ while True:
     print("3. jaa")
     print("4. kerro")
     print("5. katso 5 viimeisintä laskutoimitusta")
-    print("6. lopeta ohjelma")
+    print("6. ohjelman resetointi")
+    print("7. lopeta ohjelma")
     print("-----------")
 
-    valinta = input("valintasi (1/2/3/4/5/6): ")
+    valinta = input("valintasi (1/2/3/4/5/6/7): ")
 
 
     #riippuen käyttäjän valinnasta, mikä funktio kutsutaan käyttöön
@@ -64,9 +67,19 @@ while True:
     # Kutsutaan viisi viimeisintä laskutoimitusta
     elif valinta == '5':
         katso_tulokset()
+
+    # Ohjelman resetointi
+    elif valinta == '6':
+        try:
+            os.remove("laskimen_tulokset.txt")
+            print("Tiedosto poistettu.")
+
+        except Exception as e:
+            print("error", e)
+            print("Tiedosto on jo poistettu.")
     
     # Ohjelman lopetus
-    elif valinta == '6':
+    elif valinta == '7':
         break
 
     else:

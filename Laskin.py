@@ -1,5 +1,19 @@
+"""
+MG tehnyt tämän laskimen. Laskurissa mahdollista suorittaa
+lisäys-, vähennys-, jako- ja kertolaskuja.
+Laskuri tallentaa laskutoimitukset txt-tiedostoon, sen juureen.
+Yksinkertainen terminaalikäyttöliittymä, jossa mahdollista
+valita em. laskutoimitukset sekä viisi edellistä laskutoimitusta,
+ohjelman resetointi ja lopettaminen.
+"""
+
 import os
 
+
+"""
+Kaikki laskufunktiot ottavat kaksi muuttujaa ja funktio käyttää
+pythonin sisäistä laskuominaisuutta palauttaen tuloksen.
+"""
 # Lisäysfunktio
 def lisaa(x, y):
     return x + y
@@ -16,6 +30,10 @@ def jako(x, y):
 def kerto(x, y):
     return x * y
 
+
+"""
+Funktio hakee tulokset tiedostosta ja tulostaa ne käyttäjälle.
+"""
 # Tulosten katselu-funktio
 def katso_tulokset():
     with open("laskimen_tulokset.txt", "r") as f:
@@ -23,6 +41,11 @@ def katso_tulokset():
         for rivi in rivit[-5:]:
             print(rivi)
 
+
+"""
+Päävalikko kokonaisuudessaan, jossa valintalogiikka, ohjelman
+resetointi ja lopettaminen.
+"""
 while True:
     #valikon valinnat
     print("-----------")
@@ -39,9 +62,7 @@ while True:
 
     valinta = input("valintasi (1/2/3/4/5/6/7): ")
 
-
     #riippuen käyttäjän valinnasta, mikä funktio kutsutaan käyttöön
-
     if valinta in ['1','2','3','4']:
         num1 = int(input("Anna ensimmäinen numero: "))
         num2 = int(input("Anna toinen numero: "))

@@ -36,15 +36,22 @@ while True:
 
         if valinta == '1':
             tulos = lisaa(num1, num2)
-            print(tulos)
+            op = "+"
         elif valinta == '2':
             tulos = vahenna(num1, num2)
-            print(tulos)
+            op = "-"
         elif valinta == '3':
             tulos = jako(num1, num2)
-            print(tulos)
+            op = "/"
         elif valinta == '4':
             tulos = kerto(num1, num2)
-            print(tulos)
-        else:
-            print("Väärä valinta.")
+            op = "*"
+
+        # Tallenna tulokset txt-tiedostoon
+        with open("laskimen_tulokset.txt", "a") as f:
+            f.write(f"{num1} {op} {num2} = {tulos}\n")
+        print(f"{num1} {op} {num2} = {tulos}")
+
+
+    else:
+        print("Väärä valinta.")
